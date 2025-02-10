@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Player data stored directly in an array
+players=("Santhi 19" "Alice 24" "Mark 23" "Sarah 22" "Titi 18")
+
+# Initialize counter
+count=0
+
+# Loop through each player
+for player in "${players[@]}"; do
+    age=$(echo "$player" | awk '{print $2}')
+    
+    if [[ $age -ge 18 && $age -le 22 ]]; then
+        ((count++))
+    fi
+done
+
+echo "Number of players aged between 18 and 22: $count"
+
